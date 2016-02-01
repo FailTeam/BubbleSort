@@ -1,0 +1,75 @@
+
+import java.lang.Exception;
+
+public class BubbleSort
+{
+        public static void bbSort(int[] lst)
+        {
+            boolean flag = true;
+            int pass = 0;
+            int temp = 0;
+
+            while(flag)
+            {
+                pass++;
+                flag = false;
+
+                for (int n = 0; n < lst.length; n++)
+                {
+                    for (int i = 1; i < (lst.length - pass); i++)
+                    {
+                        if (lst[i] <= lst[i + 1])
+                        {
+                            temp = lst[i];
+                            lst[i] = lst[i + 1];
+                            lst[i + 1] = temp;
+
+                            flag = true;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public static void main(String [] args)
+        {
+            int[] lst = {9, 6, 8, 7, 12, 4, 2, 1};
+            System.out.println("The Original List is: ");
+
+            try
+            {
+                int i;
+
+                for (i = 0; i < lst.length; i++)
+                {
+                    System.out.print(lst[i] + " ");
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException e)
+            {
+                e.printStackTrace();
+            }
+
+            bbSort(lst);
+
+            System.out.println("\n" + "The Sorted List is: ");
+
+            try
+            {
+                for(int i = 0; i < lst.length; i++)
+                {
+
+                    System.out.print(lst[i] + " ");
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException e)
+            {
+                e.printStackTrace();
+                e.getStackTrace();
+            }
+
+
+
+        }
+}
